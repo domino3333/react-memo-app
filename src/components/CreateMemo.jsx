@@ -1,15 +1,12 @@
+import '../css/CreateMemo.css'
 
+const CreateMemo = () => {
 
-const CreateMemo= ()=>{
-
-    return(<>
+    return (<>
         <div className="CreateMemo">
-        <textarea>
-            음음
-        </textarea>
-
+            <textarea />
+            <button type="button">완료</button>
         </div>
-        <button type="button">완료</button>
 
     </>)
 
