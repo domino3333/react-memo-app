@@ -1,0 +1,38 @@
+/* MemoItem.css */
+
+.memo-item {
+  background-color: #ecfdf5;
+  border: 1.5px solid #a7f3d0;
+  border-radius: 12px;
+
+  padding: 14px 16px;
+  margin-bottom: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.memo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 13px;
+  color: #065f46;
+}
+
+.memo-id {
+  font-weight: bold;
+}
+
+.memo-date {
+  color: #047857;
+}
+
+.memo-content {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #064e3b;
+  word-break: break-word;
+}

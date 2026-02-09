@@ -11,21 +11,32 @@ function App() {
   const [mode, setMode] = useState("list")
 
   const idRef = useRef(1);
-    
-  function setDisplay(mode){
+
+  function setDisplay(mode) {
 
     setMode(mode);
   }
+  function formatDate(timestamp) {
+    const d = new Date(timestamp)
 
-  function addMemo(content){
+    const yyyy = d.getFullYear()
+    const MM = String(d.getMonth() + 1).padStart(2, "0")
+    const dd = String(d.getDate()).padStart(2, "0")
+    const hh = String(d.getHours()).padStart(2, "0")
+    const mm = String(d.getMinutes()).padStart(2, "0")
+    const ss = String(d.getSeconds()).padStart(2, "0")
+
+    return `${yyyy}.${MM}.${dd} ${hh}:${mm}:${ss}`
+  }
+  function addMemo(content) {
 
     const newMemo = {
-      id:idRef.current++,
-      content:content,
-      date:new Date().getTime()
+      id: idRef.current++,
+      content: content,
+      date: formatDate(new Date())
     }
 
-    setMemo((prev)=>[...prev,newMemo])
+    setMemo((prev) => [...prev, newMemo])
   }
   console.log(memo);
 
@@ -34,13 +45,13 @@ function App() {
       <div className='app'>
         {mode === "list" &&
           <>
-            <Header setDisplay={setDisplay}/>
-            <List />
+            <Header setDisplay={setDisplay} />
+            <List memo={memo} />
           </>
         }
         {mode === "create" &&
           <>
-            <CreateMemo addMemo={addMemo} setDisplay={setDisplay}/>
+            <CreateMemo addMemo={addMemo} setDisplay={setDisplay} />
           </>
         }
       </div>

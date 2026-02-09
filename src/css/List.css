@@ -1,0 +1,5 @@
+.memo-list {
+  flex: 1;                 /* app 안에서 남은 공간 전부 사용 */
+  overflow-y: auto;        /* 세로 스크롤 */
+  padding-right: 6px;      /* 스크롤바 여백 */
+}
