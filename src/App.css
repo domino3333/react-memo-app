@@ -1,0 +1,16 @@
+/* app.css */
+
+.app {
+  width: 40%;
+  min-width: 400px;   /* 너무 작아지는 것 방지 (실무에서 거의 넣음) */
+  height: 80%;
+
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+}
