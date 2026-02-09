@@ -10,10 +10,24 @@ function App() {
   const [memo, setMemo] = useState([])
   const [mode, setMode] = useState("list")
 
+  const idRef = useRef(1);
+    
   function setDisplay(mode){
 
     setMode(mode);
   }
+
+  function addMemo(content){
+
+    const newMemo = {
+      id:idRef.current++,
+      content:content,
+      date:new Date().getTime()
+    }
+
+    setMemo((prev)=>[...prev,newMemo])
+  }
+  console.log(memo);
 
   return (
     <>
@@ -26,7 +40,7 @@ function App() {
         }
         {mode === "create" &&
           <>
-            <CreateMemo/>
+            <CreateMemo addMemo={addMemo} setDisplay={setDisplay}/>
           </>
         }
       </div>
