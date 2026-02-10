@@ -3,12 +3,14 @@ import CreateMemo from './components/CreateMemo'
 import Header from './components/Header'
 import List from './components/List'
 import { useState, useRef } from 'react'
+import MemoDetail from './components/MemoDetail'
 
 
 function App() {
 
   const [memo, setMemo] = useState([])
   const [mode, setMode] = useState("list")
+  const [selectedMemo,setSeletedMemo] = useState(null)
 
   const idRef = useRef(1);
 
@@ -38,7 +40,13 @@ function App() {
 
     setMemo((prev) => [...prev, newMemo])
   }
-  console.log(memo);
+
+  function clickMemo(item){
+    setSeletedMemo(item)
+    setMode("memoDetail")
+  }
+
+
 
   return (
     <>
@@ -46,7 +54,7 @@ function App() {
         {mode === "list" &&
           <>
             <Header setDisplay={setDisplay} />
-            <List memo={memo} />
+            <List memo={memo} clickMemo={clickMemo}/>
           </>
         }
         {mode === "create" &&
@@ -54,6 +62,12 @@ function App() {
             <CreateMemo addMemo={addMemo} setDisplay={setDisplay} />
           </>
         }
+        {mode === "memoDetail" &&
+          <>
+            <MemoDetail {...selectedMemo}/>
+          </>
+        }
+
       </div>
     </>
   )
