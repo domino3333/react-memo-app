@@ -1,6 +1,8 @@
 import '../css/MemoDetail.css'
 
-const MemoDetail = ({ id, content, date, setDisplay }) => {
+const MemoDetail = ({ clickDeleteButton,id, content, date, setDisplay }) => {
+
+
   return (
     <div className="memo-detail">
       {/* 상단 뒤로가기 버튼 */}
@@ -12,7 +14,7 @@ const MemoDetail = ({ id, content, date, setDisplay }) => {
       {/* 상단 헤더 */}
       <div className="memo-detail-header">
         <h1 className="memo-detail-id">#{id}</h1>
-        <button className="memo-edit-btn" type="button" onClick={()=>setDisplay("memoEdit")}>수정</button>
+        <button className="memo-edit-btn" type="button" onClick={() => setDisplay("memoEdit")}>수정</button>
       </div>
 
       {/* 날짜 */}
@@ -22,7 +24,7 @@ const MemoDetail = ({ id, content, date, setDisplay }) => {
       <div className="memo-detail-content">{content}</div>
 
       {/* 삭제 버튼 */}
-      <button className="memo-delete-btn" type="button">삭제</button>
+      <button className="memo-delete-btn" type="button" onClick={()=>clickDeleteButton(id)}>삭제</button>
     </div>
   )
 }

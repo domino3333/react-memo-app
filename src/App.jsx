@@ -11,7 +11,7 @@ function App() {
 
   const [memo, setMemo] = useState([])
   const [mode, setMode] = useState("list")
-  const [selectedMemo,setSelectedMemo] = useState(null)
+  const [selectedMemo, setSelectedMemo] = useState(null)
 
   const idRef = useRef(1);
 
@@ -42,9 +42,14 @@ function App() {
     setMemo((prev) => [...prev, newMemo])
   }
 
-  function clickMemo(item){
+  function clickMemo(item) {
     setSelectedMemo(item)
     setMode("memoDetail")
+  }
+
+  const clickDeleteButton = (id) => {
+    setMemo((prev)=>prev.filter((memo)=>memo.id !== id))
+    setMode("list")
   }
 
 
@@ -54,7 +59,7 @@ function App() {
         {mode === "list" &&
           <>
             <Header setDisplay={setDisplay} />
-            <List memo={memo} clickMemo={clickMemo}/>
+            <List memo={memo} clickMemo={clickMemo} />
           </>
         }
         {mode === "create" &&
@@ -64,12 +69,12 @@ function App() {
         }
         {mode === "memoDetail" &&
           <>
-            <MemoDetail {...selectedMemo} setDisplay={setDisplay}/>
+            <MemoDetail clickDeleteButton={clickDeleteButton} {...selectedMemo} setDisplay={setDisplay} />
           </>
         }
         {mode === "memoEdit" &&
           <>
-            <MemoEdit {...selectedMemo} setMemo={setMemo} setDisplay={setDisplay}/>
+            <MemoEdit {...selectedMemo} setMemo={setMemo} setDisplay={setDisplay} />
           </>
         }
 
