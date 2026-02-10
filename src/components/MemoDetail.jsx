@@ -1,8 +1,13 @@
 import '../css/MemoDetail.css'
 
-const MemoDetail = ({id, content, date}) => {
+const MemoDetail = ({ id, content, date, setDisplay }) => {
   return (
     <div className="memo-detail">
+      {/* 상단 뒤로가기 버튼 */}
+      <button className="memo-back-btn" type="button" onClick={() => setDisplay("list")}>
+        ←
+      </button>
+
       {/* 상단 헤더 */}
       <div className="memo-detail-header">
         <h1 className="memo-detail-id">#{id}</h1>
@@ -22,4 +27,3 @@ const MemoDetail = ({id, content, date}) => {
 }
 
 export default MemoDetail
-

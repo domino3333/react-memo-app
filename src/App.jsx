@@ -64,7 +64,7 @@ function App() {
         }
         {mode === "memoDetail" &&
           <>
-            <MemoDetail {...selectedMemo}/>
+            <MemoDetail {...selectedMemo} setDisplay={setDisplay}/>
           </>
         }
 
