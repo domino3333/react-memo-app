@@ -3,3 +3,10 @@
   overflow-y: auto;        /* 세로 스크롤 */
   padding-right: 6px;      /* 스크롤바 여백 */
 }
+
+/* MemoItem 내용 한 줄 말줄임 */
+.memo-content {
+  white-space: nowrap;        /* 줄바꿈 없이 한 줄로 */
+  overflow: hidden;           /* 넘친 부분 숨김 */
+  text-overflow: ellipsis;    /* 말줄임(...) 표시 */
+}
