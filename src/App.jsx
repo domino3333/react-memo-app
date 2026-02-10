@@ -47,9 +47,6 @@ function App() {
     setMode("memoDetail")
   }
 
-  function EditMemo(){
-    
-  }
 
   return (
     <>
@@ -72,7 +69,7 @@ function App() {
         }
         {mode === "memoEdit" &&
           <>
-            <MemoEdit {...selectedMemo}/>
+            <MemoEdit {...selectedMemo} setMemo={setMemo} setDisplay={setDisplay}/>
           </>
         }
 
