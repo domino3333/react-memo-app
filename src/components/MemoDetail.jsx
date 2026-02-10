@@ -1,6 +1,6 @@
 import '../css/MemoDetail.css'
 
-const MemoDetail = ({ clickDeleteButton,id, content, date, setDisplay }) => {
+const MemoDetail = ({ id, content, date, setDisplay,clickDeleteButton }) => {
 
 
   return (

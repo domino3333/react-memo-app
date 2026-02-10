@@ -10,6 +10,8 @@ const MemoEdit = ({ id, content, date, setMemo, setDisplay }) => {
     setTextArea(e.target.value);
   }
 
+
+  {/* 수정완료 버튼 */ }
   const clickCompleteButton = () => {
 
     setMemo((prev) => prev.map((memo) => memo.id === id ? { ...memo, content: textarea } : memo));
