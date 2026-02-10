@@ -10,7 +10,7 @@ function App() {
 
   const [memo, setMemo] = useState([])
   const [mode, setMode] = useState("list")
-  const [selectedMemo,setSeletedMemo] = useState(null)
+  const [selectedMemo,setSelectedMemo] = useState(null)
 
   const idRef = useRef(1);
 
@@ -42,7 +42,7 @@ function App() {
   }
 
   function clickMemo(item){
-    setSeletedMemo(item)
+    setSelectedMemo(item)
     setMode("memoDetail")
   }
 
