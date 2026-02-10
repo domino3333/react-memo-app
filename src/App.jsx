@@ -4,6 +4,7 @@ import Header from './components/Header'
 import List from './components/List'
 import { useState, useRef } from 'react'
 import MemoDetail from './components/MemoDetail'
+import MemoEdit from './components/MemoEdit'
 
 
 function App() {
@@ -46,7 +47,9 @@ function App() {
     setMode("memoDetail")
   }
 
-
+  function EditMemo(){
+    
+  }
 
   return (
     <>
@@ -65,6 +68,11 @@ function App() {
         {mode === "memoDetail" &&
           <>
             <MemoDetail {...selectedMemo} setDisplay={setDisplay}/>
+          </>
+        }
+        {mode === "memoEdit" &&
+          <>
+            <MemoEdit {...selectedMemo}/>
           </>
         }
 

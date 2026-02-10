@@ -8,10 +8,11 @@ const MemoDetail = ({ id, content, date, setDisplay }) => {
         ←
       </button>
 
+
       {/* 상단 헤더 */}
       <div className="memo-detail-header">
         <h1 className="memo-detail-id">#{id}</h1>
-        <button className="memo-edit-btn" type="button">수정</button>
+        <button className="memo-edit-btn" type="button" onClick={()=>setDisplay("memoEdit")}>수정</button>
       </div>
 
       {/* 날짜 */}
