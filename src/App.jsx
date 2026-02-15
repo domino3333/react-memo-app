@@ -2,10 +2,31 @@ import './App.css'
 import CreateMemo from './components/CreateMemo'
 import Header from './components/Header'
 import List from './components/List'
-import { useState, useRef } from 'react'
+import { useState, useRef, useReducer, useCallback, createContext, useMemo } from 'react'
 import MemoDetail from './components/MemoDetail'
 import MemoEdit from './components/MemoEdit'
 
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "CREATE":
+      return [action.data, ...state];
+    case "UPDATE":
+      return state.map((item) =>
+        item.id === action.targetId
+          ? { ...item, isDone: !item.isDone }
+          : item
+      );
+    case "DELETE":
+      return state.filter((item) => item.id !== action.targetId);
+    default:
+      return state;
+  }
+}
+
+
+export const TodoStateContext = createContext();
+export const TodoDispatchContext = createContext();
 
 function App() {
 
@@ -14,6 +35,11 @@ function App() {
   const [selectedMemo, setSelectedMemo] = useState(null)
 
   const idRef = useRef(1);
+
+  const memoizedDispatch = useMemo(() => {
+    return { addMemo, clickDeleteButton };
+  }, [addMemo, clickDeleteButton ]);
+
 
   function setDisplay(mode) {
 
@@ -48,7 +74,7 @@ function App() {
   }
 
   const clickDeleteButton = (id) => {
-    setMemo((prev)=>prev.filter((memo)=>memo.id !== id))
+    setMemo((prev) => prev.filter((memo) => memo.id !== id))
     setMode("list")
   }
 
